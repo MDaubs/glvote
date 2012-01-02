@@ -39,7 +39,7 @@ Then /^"([^"]*)" has (\d+) vote([s]*)$/ do |candidate_name, vote_count, ignore|
 end
 
 Then /^voting booth (\d+) is inactive$/ do |booth_id|
-  booth(booth_id).state.should == 'inactive'
+  booth(booth_id).state.should be_a(InactiveState)
 end
 
 When /^I go to the previous screen$/ do

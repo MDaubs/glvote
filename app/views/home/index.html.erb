@@ -6,36 +6,38 @@
         <tr>
           <th>#</th>
           <th>Status</th>
+          <th>Active/Previous Voter</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <% @booths.each do |booth| %>
           <tr id="<%= dom_id(booth) %>">
-            <%= form_for booth.booth_connection, :url => booth_connection_url(booth) do |f| %>
-              <td>
-                <%= f.hidden_field :booth_id %>
-                <strong><%= booth.id %></strong>
-              </td>
-              <td>
-                <% case booth.state %>
-                <% when 'inactive' %>
-                  <span class="label">Inactive</span>
-                <% when 'ready' %>
-                  <span class="label success">Ready for voter</span>
-                <% else %>
-                  <span class="label important">Voting in progress</span>
-                <% end %>
-              </td>
-              <td>
-                <%= f.submit "Connect", :class => 'btn' %>
-              </td>
-            <% end %>
+            <td>
+              <strong><%= booth.id %></strong>
+            </td>
+            <td>
+              <span class="human_status label <%= booth.state.css_class %>"><%= booth.state.human_status %></span>
+            </td>
+            <td>
+              <span class"voter_name"><%= booth.voter_name %></span>
+            </td>
+            <td>
+              <%= button_to 'Connect', booth_connection_path(booth), class: 'btn', disable_with: 'Loading...', confirm: "You are about to logoff and reconnect this terminal as voting booth ##{booth.id}. Are you sure you wish to continue?" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
   <div class="span8">
+    <h3>Voter Registration</h3>
+    <%= form_for @registration do |f| %>
+      <%= f.label :voter_name %>
+      <%= f.text_field :voter_name %>
+      <%= f.label :booth_id %>
+      <%= f.select :booth_id, Booth.all.collect {|b| ["Voting Booth ##{b.id}", b.id] } %>
+      <%= f.submit 'Register', class: 'btn primary', disable_with: 'Loading...' %>
+    <% end %>
   </div>
 </div>
