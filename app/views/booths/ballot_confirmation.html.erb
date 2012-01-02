@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h1>Confirmation</h1>
+</div>
+<%= form_for @booth do |f| %>
+  <div class="input">
+    <p>You are about to cast your ballot.</p>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Cast Ballot', :class => 'btn primary large pull-right' %>
+    <%= f.submit 'Previous', :class => 'btn large' %>
+  </div>
+<% end %>

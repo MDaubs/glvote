@@ -1,0 +1,5 @@
+<%= form_for @booth do |f| %>
+  <h1>Instructions</h1>
+  <%= f.hidden_field :instructions_confirmed, :value => true %>
+  <%= f.submit 'Next', :class => 'btn primary large pull-right' %>
+<% end %>

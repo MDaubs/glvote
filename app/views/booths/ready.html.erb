@@ -1,0 +1,6 @@
+<h1>Ready</h1>
+<%= form_for @booth do |f| %>
+  Press begin to start voting
+  <%= f.hidden_field :begin_pressed, :value => true %>
+  <%= f.submit 'Begin', :class => 'btn primary large' %>
+<% end %>

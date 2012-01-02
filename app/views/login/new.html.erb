@@ -1,0 +1,12 @@
+<%= form_for :login, url: login_path do |f| %>
+  <fieldset>
+    <legend>Login to activate this terminal</legend>
+    <div class="clearfix">
+      <%= f.label :password %>
+      <div class="input">
+        <%= f.password_field :password %>
+        <%= f.submit 'Login', class: 'btn primary' %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

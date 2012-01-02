@@ -1,0 +1,6 @@
+<%= form_for @booth do |f| %>
+  Is your name <%= @booth.voter_name %>?
+  <%= f.hidden_field :voter_name_confirmed, :value => true %>
+  <%= f.submit 'Yes', :class => 'btn primary large pull-right' %>
+  <%= f.submit 'No', :class => 'btn large' %>
+<% end %>

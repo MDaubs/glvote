@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="span8">
+    <h3>Voting Booths</h3>
+    <table id="booths">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @booths.each do |booth| %>
+          <tr id="<%= dom_id(booth) %>">
+            <%= form_for booth.booth_connection, :url => booth_connection_url(booth) do |f| %>
+              <td>
+                <%= f.hidden_field :booth_id %>
+                <strong><%= booth.id %></strong>
+              </td>
+              <td>
+                <% case booth.state %>
+                <% when 'inactive' %>
+                  <span class="label">Inactive</span>
+                <% when 'ready' %>
+                  <span class="label success">Ready for voter</span>
+                <% else %>
+                  <span class="label important">Voting in progress</span>
+                <% end %>
+              </td>
+              <td>
+                <%= f.submit "Connect", :class => 'btn' %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="span8">
+  </div>
+</div>
