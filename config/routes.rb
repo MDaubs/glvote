@@ -9,6 +9,8 @@ Glvote::Application.routes.draw do
     resource :connection, :only => [:create, :destroy], :controller => 'booth_connections'
   end
 
+  resources :voter_registrations, :only => [:create]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

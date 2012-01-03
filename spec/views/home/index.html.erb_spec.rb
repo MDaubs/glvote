@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "home/index.html.erb" do
   let(:booths) { [stub_model(Booth, :id => 1), stub_model(Booth, :id => 2)] }
-  let(:registration) { mock_model(VoterRegistration).as_new_record }
+  let(:registration) { mock_model(VoterRegistration, :booth_id => 12, :voter_name => 'Tom').as_new_record }
 
   before do
     assign(:booths, booths)

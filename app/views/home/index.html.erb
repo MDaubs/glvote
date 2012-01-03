@@ -20,7 +20,7 @@
               <span class="human_status label <%= booth.state.css_class %>"><%= booth.state.human_status %></span>
             </td>
             <td>
-              <span class"voter_name"><%= booth.voter_name %></span>
+              <span class="voter_name"><%= booth.voter_name %></span>
             </td>
             <td>
               <%= button_to 'Connect', booth_connection_path(booth), class: 'btn', disable_with: 'Loading...', confirm: "You are about to logoff and reconnect this terminal as voting booth ##{booth.id}. Are you sure you wish to continue?" %>
@@ -37,7 +37,7 @@
       <%= f.text_field :voter_name %>
       <%= f.label :booth_id %>
       <%= f.select :booth_id, Booth.all.collect {|b| ["Voting Booth ##{b.id}", b.id] } %>
-      <%= f.submit 'Register', class: 'btn primary', disable_with: 'Loading...' %>
+      <%= f.submit 'Register Voter', class: 'btn primary', disable_with: 'Loading...' %>
     <% end %>
   </div>
 </div>
