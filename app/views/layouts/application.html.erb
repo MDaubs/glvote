@@ -11,11 +11,12 @@
       <div class="fill">
         <div class="container">
           <span class="brand">Grand Lodge Balloting 2012</span>
-          <% if @booth %>
-            <div class="pull-right">
+          <div class="pull-right">
+            <% if @booth %>
               <span class="booth-indicator brand">Voting Booth #<%= @booth.id %></span>
-            </div>
-          <% end %>
+            <% end %>
+            <%= render 'layouts/login_indicator' %>
+          </div>
         </div>
       </div>
     </div>

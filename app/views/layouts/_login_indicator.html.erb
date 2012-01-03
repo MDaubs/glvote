@@ -1,0 +1,3 @@
+<% if logged_in? %>
+  <span class="login-indicator"><%= button_to('Logout', login_path, :method => 'delete') %></span>
+<% end %>

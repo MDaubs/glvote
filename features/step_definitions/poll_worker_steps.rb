@@ -17,3 +17,14 @@ end
 Then /^I see that "([^"]*)" is the active voter for voting booth (\d+)$/ do |voter_name, booth_id|
   page.find("tr#booth_#{booth_id} td span.voter_name").should have_content(voter_name)
 end
+
+When /^I logout as a poll worker$/ do
+  logout
+end
+
+Then /^I cannot go to the poll worker screen$/ do
+  visit root_url
+  page.should_not have_content('Voting Booths')
+  page.should_not have_content('Voter Registration')
+  page.should have_content('Password')
+end

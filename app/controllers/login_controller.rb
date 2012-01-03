@@ -12,4 +12,9 @@ class LoginController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    session[:role] = nil
+    redirect_to root_url, notice: 'You have been logged out.'
+  end
 end

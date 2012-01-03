@@ -29,4 +29,15 @@ describe LoginController do
     it { should render_template 'new' }
     it { should set_the_flash.now }
   end
+
+  describe "DELETE destroy" do
+    before do
+      session[:role] = 1
+      delete :destroy
+    end
+
+    it { should redirect_to root_url }
+    it { should set_session(:role).to(nil) }
+    it { should set_the_flash }
+  end
 end

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   ELECTION_WORKER = 1
 
+  helper_method :logged_in?
   def logged_in?
     session[:role].present?
   end
