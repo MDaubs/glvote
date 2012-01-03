@@ -31,13 +31,6 @@
     </table>
   </div>
   <div class="span8">
-    <h3>Voter Registration</h3>
-    <%= form_for @registration do |f| %>
-      <%= f.label :voter_name %>
-      <%= f.text_field :voter_name %>
-      <%= f.label :booth_id %>
-      <%= f.select :booth_id, Booth.all.collect {|b| ["Voting Booth ##{b.id}", b.id] } %>
-      <%= f.submit 'Register Voter', class: 'btn primary', disable_with: 'Loading...' %>
-    <% end %>
+    <%= render 'voter_registration' %>
   </div>
 </div>

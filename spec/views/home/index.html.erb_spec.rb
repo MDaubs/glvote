@@ -2,11 +2,10 @@ require 'spec_helper'
 
 describe "home/index.html.erb" do
   let(:booths) { [stub_model(Booth, :id => 1), stub_model(Booth, :id => 2)] }
-  let(:registration) { mock_model(VoterRegistration, :booth_id => 12, :voter_name => 'Tom').as_new_record }
 
   before do
     assign(:booths, booths)
-    assign(:registration, registration)
+    stub_template 'home/_voter_registration.html.erb' => '[voter_registration]'
     render
   end
 
@@ -14,4 +13,8 @@ describe "home/index.html.erb" do
 
   specify { subject.find('#booth_1').should have_button('Connect') }
   specify { subject.find('#booth_2').should have_button('Connect') }
+
+  it "should render the voter_registration partial" do
+    rendered.should have_content('[voter_registration]')
+  end
 end
