@@ -28,3 +28,9 @@ Then /^I cannot go to the poll worker screen$/ do
   page.should_not have_content('Voter Registration')
   page.should have_content('Password')
 end
+
+When /^I reset voting booth (\d+)$/ do |booth_id|
+  within("tr#booth_#{booth_id}") do
+    click_on 'Reset'
+  end
+end

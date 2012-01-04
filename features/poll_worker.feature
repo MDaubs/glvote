@@ -15,3 +15,11 @@ Feature: Poll Worker
     Given I login as a poll worker
     When  I logout as a poll worker
     Then  I cannot go to the poll worker screen
+
+  Scenario: I can reset an active voting booth
+    Given voting booth 1 is inactive
+    And   I login as a poll worker
+    And   I register "Gerald Filmore" for voting booth 1
+    And   I see that voting booth 1 is "Ready For Voter"
+    When  I reset voting booth 1
+    Then  I see that voting booth 1 is "Inactive"

@@ -29,4 +29,25 @@ describe BoothsController do
     it { should assign_to(:booth).with(booth) }
     it { should render_template('ready') }
   end
+
+  describe "#reset", "when not logged in as poll worker" do
+    before do
+      post :reset, id: 19
+    end
+
+    it { should redirect_to_login }
+  end
+
+  describe "#reset", "when logged in as poll worker" do
+    let(:booth) { mock_model(Booth) }
+
+    before do
+      login_as_election_worker
+      Booth.stub(:find).with("19").and_return(booth)
+      booth.should_receive(:deactivate!)
+      post :reset, id: 19
+    end
+
+    it { should redirect_to(root_url) }
+  end
 end

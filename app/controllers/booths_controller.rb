@@ -26,4 +26,15 @@ class BoothsController < ApplicationController
       render @booth.state.view_name
     end
   end
+
+  # Resets a booth. This happens when a poll worker needs to reverse an activation.
+  def reset
+    if logged_in?
+      booth = Booth.find(params[:id])
+      booth.deactivate!
+      redirect_to root_url
+    else
+      redirect_to_login
+    end
+  end
 end

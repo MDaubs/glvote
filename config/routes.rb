@@ -7,6 +7,9 @@ Glvote::Application.routes.draw do
 
   resources :booths, :only => [:show, :update] do
     resource :connection, :only => [:create, :destroy], :controller => 'booth_connections'
+    member do
+      post 'reset'
+    end
   end
 
   resources :voter_registrations, :only => [:create]

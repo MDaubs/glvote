@@ -23,4 +23,12 @@ describe "booth routing" do
       id: "27"
     )
   end
+
+  it "routes POST /booths/:id/reset to booths#reset" do
+    { post: "/booths/27/reset" }.should route_to(
+      controller: "booths",
+      action: "reset",
+      id: "27"
+    )
+  end
 end

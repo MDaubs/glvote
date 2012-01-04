@@ -13,6 +13,8 @@ describe "home/index.html.erb" do
 
   specify { subject.find('#booth_1').should have_button('Connect') }
   specify { subject.find('#booth_2').should have_button('Connect') }
+  specify { subject.find('#booth_1').should have_button('Reset') }
+  specify { subject.find('#booth_2').should have_button('Reset') }
 
   it "should render the voter_registration partial" do
     rendered.should have_content('[voter_registration]')

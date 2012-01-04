@@ -24,6 +24,7 @@
             </td>
             <td>
               <%= button_to 'Connect', booth_connection_path(booth), class: 'btn', disable_with: 'Loading...', confirm: "You are about to logoff and reconnect this terminal as voting booth ##{booth.id}. Are you sure you wish to continue?" %>
+              <%= button_to 'Reset', reset_booth_path(booth), class: 'btn', disable_with: 'Loading...', confirm: "You are about to reset this voting booth. If it has an active voter or ballot it will not be cast. Are you sure you wish to continue?" %>
             </td>
           </tr>
         <% end %>
