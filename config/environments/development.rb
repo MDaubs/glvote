@@ -1,6 +1,7 @@
 Glvote::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   config.election_worker_password = 'worker'
+  config.faye_url = 'http://localhost:9292/faye'
 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development

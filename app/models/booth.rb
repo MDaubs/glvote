@@ -49,66 +49,10 @@ class Booth < ActiveRecord::Base
     else
       self.state_name = value.class.to_s.underscore
     end
+    FayeNotifier.publish('/booths',
+                         id: self.id,
+                         voter_name: self.voter_name,
+                         human_status: self.state.human_status,
+                         css_class: self.state.css_class)
   end
-
-  #def state
-  #  if self.active?
-  #    if self.begin_pressed?
-  #      if self.voter_name_confirmed?
-  #        if self.instructions_confirmed?
-  #          if self.active_office.present?
-  #            'ballot_selection'
-  #          else
-  #            'ballot_confirmation'
-  #          end
-  #        else
-  #          'ballot_instructions'
-  #        end
-  #      else
-  #        'voter_confirmation'
-  #      end
-  #    else
-  #      'ready'
-  #    end
-  #  else
-  #    'inactive'
-  #  end
-  #end
-
-  #def next
-  #  if self.state == 'ballot_selection'
-  #    self.active_office = Office.where("id > #{self.active_office.id}").first
-  #    save!
-  #    return nil
-  #  end
-  #  nil
-  #end
-
-  #def previous
-  #  if self.state == 'ballot_selection'
-  #    previous_office = Office.where("id < #{self.active_office.id}").last
-  #    if previous_office.present?
-  #      self.active_office = previous_office
-  #    else
-  #      self.instructions_confirmed = false
-  #    end
-  #    save!
-  #    return nil
-  #  elsif self.state == 'ballot_confirmation'
-  #    self.active_office = Office.last
-  #    save!
-  #    return nil
-  #  end
-  #  nil
-  #end
-
-  #def cast_ballot
-  #  if self.state == 'ballot_confirmation'
-  #    self.active_ballot.cast = true
-  #    deactivate
-  #    save!
-  #    return 'Your ballot has been cast.'
-  #  end
-  #  nil
-  #end
 end

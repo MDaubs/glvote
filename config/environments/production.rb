@@ -1,6 +1,7 @@
 Glvote::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   config.election_worker_password = 'worker'
+  config.faye_url = 'http://localhost:9292/faye'
 
   # Code is not reloaded between requests
   config.cache_classes = true

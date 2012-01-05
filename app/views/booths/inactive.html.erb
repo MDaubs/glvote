@@ -1,3 +1,6 @@
+<% content_for :javascript do %>
+  new GLVote.InactiveBoothView({faye_url: '<%= Rails.configuration.faye_url %>', booth_id: '<%= @booth.id %>', human_status: '<%= @booth.state.human_status %>', voter_name: '<%= @booth.voter_name %>'});
+<% end %>
 <div class="page-header">
   <h1>Please wait for a poll worker to activate this voting booth.</h1>
 </div>

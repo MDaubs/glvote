@@ -14,11 +14,18 @@ def login_and_start_booth(id)
   login_as_election_worker
   within("#booth_#{id}") do
     click_on 'Connect'
+    accept_alert
+  end
+end
+
+def accept_alert
+  if page.driver.browser.respond_to?(:switch_to)
+    page.driver.browser.switch_to.alert.accept
   end
 end
 
 def login_as_election_worker
-  visit root_url
+  visit root_path
   fill_in 'Password', with: Rails.configuration.election_worker_password
   click_on 'Login'
 end

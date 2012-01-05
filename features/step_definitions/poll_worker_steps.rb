@@ -23,7 +23,7 @@ When /^I logout as a poll worker$/ do
 end
 
 Then /^I cannot go to the poll worker screen$/ do
-  visit root_url
+  visit root_path
   page.should_not have_content('Voting Booths')
   page.should_not have_content('Voter Registration')
   page.should have_content('Password')

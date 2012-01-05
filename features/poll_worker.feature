@@ -23,3 +23,14 @@ Feature: Poll Worker
     And   I see that voting booth 1 is "Ready For Voter"
     When  I reset voting booth 1
     Then  I see that voting booth 1 is "Inactive"
+
+  @javascript
+  Scenario: An inactive voting booth is immediately made ready when activated by a poll worker
+    Given voting booth 1 is inactive
+    And   I switch to the voting booth browser
+    And   I use voting booth 1
+    And   I switch to the poll worker's browser
+    And   I login as a poll worker
+    When  I register "Gerald Filmore" for voting booth 1
+    And   I switch to the voting booth browser
+    Then  I should see "Press begin"
