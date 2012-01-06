@@ -1,0 +1,2 @@
+guard: guard start
+faye:  rackup -s thin -E production -p 9393 faye.ru
