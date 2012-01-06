@@ -1,4 +1,6 @@
 class BoothsController < ApplicationController
+  layout 'booths'
+
   def show
     @booth = Booth.find(params[:id])
     render @booth.state.view_name

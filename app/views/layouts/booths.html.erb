@@ -1,0 +1,6 @@
+<% content_for :javascript do %>
+  $(function() {
+    window.booth_view = new GLVote.BoothView({faye_url: '<%= Rails.configuration.faye_url %>', booth_id: '<%= @booth.id %>', human_status: '<%= @booth.state.human_status %>', voter_name: '<%= @booth.voter_name %>'});
+  });
+<% end %>
+<%= render template: 'layouts/application' %>

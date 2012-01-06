@@ -1,5 +1,5 @@
 window.GLVote ||= {}
-window.GLVote.InactiveBoothView = class GLVote.InactiveBoothView
+window.GLVote.BoothView = class GLVote.BoothView
   constructor: (options) ->
     @booth_id = parseInt(options.booth_id)
     @human_status = options.human_status
