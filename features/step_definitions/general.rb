@@ -12,5 +12,6 @@ When /^I switch to (.*) browser$/ do |browser|
 end
 
 Then /^I should see "([^"]*)"$/ do |content|
+  sleep 5
   page.should have_content(content)
 end
