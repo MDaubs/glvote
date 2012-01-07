@@ -28,7 +28,6 @@ group :test, :development do
   gem 'ruby-debug19', require: 'ruby-debug'
   gem 'guard-rspec'
   gem 'guard-cucumber'
-  gem 'growl_notify'
   gem 'launchy'
   gem 'prawn'
 end
