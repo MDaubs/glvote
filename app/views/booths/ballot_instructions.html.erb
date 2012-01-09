@@ -1,5 +1,13 @@
 <%= form_for @booth, remote: true do |f| %>
-  <h1>Instructions</h1>
+  <div class="page-header">
+    <h1>Instructions</h1>
+  </div>
+  <div class="well">
+    After pressing the Next button you will begin voting. Each office will be displayed one at a time
+    along with a list of candidates. Make your selection by pressing the candidates picture or name.
+    The candidate you select will be become highlighted to indicate which selection you made. Press
+    Next to few the next available office or Previous to go back if you wish to change a selection.
+  </div>
   <%= f.hidden_field :instructions_confirmed, :value => true %>
   <%= f.submit 'Next', :class => 'btn primary large pull-right' %>
 <% end %>

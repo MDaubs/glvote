@@ -11,3 +11,20 @@
 {
   margin-top: 60px;
 }
+
+.well
+{
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.candidates label
+{
+  font-size: 18px;
+  display: block;
+  float: none;
+  width: auto;
+  text-align: left;
+  line-height: 20px;
+  padding: 20px;
+}

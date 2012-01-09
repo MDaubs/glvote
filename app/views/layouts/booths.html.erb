@@ -7,6 +7,10 @@
     })
     .live('ajax:error', function(evt) {
     });
+    $('.candidates input:radio').live('change', function() {
+      $('.candidate').removeClass('success');
+      $(this).parent().parent().addClass('success');
+    });
   });
 <% end %>
 <%= render template: 'layouts/application' %>

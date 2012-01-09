@@ -1,15 +1,21 @@
 <%= form_for @booth, remote: true do |f| %>
-  <h1><%= @booth.active_office.name %></h1>
-  <p>
-  <%= f.fields_for :active_selection do |active_selection_fields| %>
-    <% @booth.active_office.candidates.each do |candidate| %>
-      <label>
-        <%= candidate.name %>
-        <%= active_selection_fields.radio_button :candidate_id, candidate.id %>
-      </label>
-    <% end %>
-  <% end %>
-  </p>
+  <div class="page-header">
+    <h1><%= @booth.active_office.name %></h1>
+  </div>
+  <div class="well">
+    <div class="candidates">
+      <%= f.fields_for :active_selection do |active_selection_fields| %>
+        <% @booth.active_office.candidates.each do |candidate| %>
+          <div class="candidate alert-message <%= 'success' if candidate.id == @booth.active_selection.candidate_id %>">
+            <label>
+              <%= active_selection_fields.radio_button :candidate_id, candidate.id %>
+              <%= candidate.name %>
+            </label>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   <%= f.submit 'Next', :class => 'btn primary large pull-right' %>
   <%= f.submit 'Previous', :class => 'btn large' %>
 <% end %>

@@ -1,5 +1,10 @@
 <%= form_for @booth, remote: true do |f| %>
-  Is your name <%= @booth.voter_name %>?
+  <div class="page-header">
+    <h1>Voter Confirmation</h1>
+  </div>
+  <div class="well">
+    Is your name <%= @booth.voter_name %>?
+  </div>
   <%= f.hidden_field :voter_name_confirmed, :value => true %>
   <%= f.submit 'Yes', :class => 'btn primary large pull-right' %>
   <%= f.submit 'No', :class => 'btn large' %>
