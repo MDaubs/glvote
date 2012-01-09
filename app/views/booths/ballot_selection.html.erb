@@ -1,4 +1,4 @@
-<%= form_for @booth do |f| %>
+<%= form_for @booth, remote: true do |f| %>
   <h1><%= @booth.active_office.name %></h1>
   <p>
   <%= f.fields_for :active_selection do |active_selection_fields| %>

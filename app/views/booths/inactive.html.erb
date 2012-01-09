@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>Please wait for a poll worker to activate this voting booth.</h1>
 </div>
-<%= form_for @booth do |f| %>
+<%= form_for @booth, remote: true do |f| %>
   <div class="input">
   </div>
   <div class="actions">

@@ -1,4 +1,4 @@
-<%= form_for @booth do |f| %>
+<%= form_for @booth, remote: true do |f| %>
   Is your name <%= @booth.voter_name %>?
   <%= f.hidden_field :voter_name_confirmed, :value => true %>
   <%= f.submit 'Yes', :class => 'btn primary large pull-right' %>

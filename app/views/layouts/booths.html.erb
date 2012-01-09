@@ -1,6 +1,12 @@
 <% content_for :javascript do %>
-  $(function() {
+  $().ready(function() {
     window.booth_view = new GLVote.BoothView({faye_url: '<%= Rails.configuration.faye_url %>', booth_id: '<%= @booth.id %>', human_status: '<%= @booth.state.human_status %>', voter_name: '<%= @booth.voter_name %>'});
+    $('form[data-remote]')
+    .live('ajax:success', function(event, data, status, xhr) {
+      $('.content').html(data);
+    })
+    .live('ajax:error', function(evt) {
+    });
   });
 <% end %>
 <%= render template: 'layouts/application' %>

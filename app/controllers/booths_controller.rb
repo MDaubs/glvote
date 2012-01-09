@@ -25,7 +25,11 @@ class BoothsController < ApplicationController
     end
     # If the state didn't trigger any rendering then default to render the state's view_name
     if response_body.nil?
-      render @booth.state.view_name
+      if request.xhr?
+        render @booth.state.view_name, layout: false
+      else
+        render @booth.state.view_name
+      end
     end
   end
 
