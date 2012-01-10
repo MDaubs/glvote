@@ -1,21 +1,6 @@
 require 'spec_helper'
 
 describe "booths/ballot_selection.html.erb" do
-  #let(:with_selection) { mock_model(BallotSelection,
-  #                                  id: 21,
-  #                                  office_id: 40,
-  #                                  candidate_id: 31) }
-
-  #let(:booth_with_selection) { mock_model(Booth,
-  #                                        id: 10,
-  #                                        active_ballot_selection: without_selection,
-  #                                        active_office_name: 'Postmaster',
-  #                                        active_office_candidates:
-  #                                        [
-  #                                          mock_model(Candidate, id: 30, name: 'Franklin'),
-  #                                          mock_model(Candidate, id: 31, name: 'Hamilton')
-  #                                        ]) }
-
   let(:booth_without_selection) { mock_model(Booth,
                                              id: 10,
                                              active_selection: mock_model(BallotSelection, id: 20, ballot_id: 10, candidate_id: nil),
