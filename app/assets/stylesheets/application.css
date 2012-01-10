@@ -20,11 +20,17 @@
 
 .candidates label
 {
-  font-size: 18px;
+  font-size: 30px;
   display: block;
   float: none;
   width: auto;
   text-align: left;
-  line-height: 20px;
+  line-height: 40px;
   padding: 20px;
+}
+
+.candidate img
+{
+  width: 90px;
+  height: 90px;
 }

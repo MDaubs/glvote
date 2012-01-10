@@ -8,6 +8,7 @@
         <% @booth.active_office.candidates.each do |candidate| %>
           <div class="candidate alert-message <%= 'success' if candidate.id == @booth.active_selection.candidate_id %>">
             <label>
+              <img src="<%= candidate.photo_url %>">
               <%= active_selection_fields.radio_button :candidate_id, candidate.id %>
               <%= candidate.name %>
             </label>
