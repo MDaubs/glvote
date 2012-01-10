@@ -1,3 +1,8 @@
+<% content_for :javascript do %>
+  $(function() {
+    window.worker_view = new GLVote.WorkerView({faye_url: '<%= Rails.configuration.faye_url %>'});
+  });
+<% end %>
 <div class="row">
   <div class="span8">
     <h3>Voting Booths</h3>
