@@ -1,5 +1,5 @@
 window.GLVote ||= {}
-window.GLVote.WorkerView = class GLVote.BoothView
+window.GLVote.WorkerView = class GLVote.WorkerView
   constructor: (options) ->
     faye_client = new Faye.Client(options.faye_url, timeout: 24)
     faye_client.subscribe '/booths', (message) =>
